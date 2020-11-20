@@ -1,0 +1,56 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1alpha2",
+    "metadata": {
+        "name": "mock-2",
+        "namespace": "namespace-3",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "mock-2",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "mock-2-container",
+                    "type": "MODEL",
+                    "endpoint": {
+                        "type": "REST"
+                    },
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2020-11-20T16:40:55Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "mock-2-container",
+                                    "image": "rafalskolasinski/mock-model:latest",
+                                    "resources": {"requests": {"cpu": "1m", "memory": "1Mi"}}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "engineResources": {"resources": {"requests": {"cpu": "1m", "memory": "1Mi"}}},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "seldon",
+        "transport": "rest"
+    },
+    "status": {}
+}

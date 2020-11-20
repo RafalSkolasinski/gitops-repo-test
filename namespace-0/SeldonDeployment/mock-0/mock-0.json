@@ -34,14 +34,14 @@
                                 {
                                     "name": "mock-0-container",
                                     "image": "rafalskolasinski/mock-model:latest",
-                                    "resources": {}
+                                    "resources": {"requests": {"cpu": "1m", "memory": "1Mi"}}
                                 }
                             ]
                         }
                     }
                 ],
                 "replicas": 1,
-                "engineResources": {},
+                "engineResources": {"resources": {"requests": {"cpu": "1m", "memory": "1Mi"}}},
                 "svcOrchSpec": {},
                 "traffic": 100
             }

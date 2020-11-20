@@ -34,14 +34,14 @@
                                 {
                                     "name": "logger-list-container",
                                     "image": "rafalskolasinski/mock-jsondata-list:1.3.0",
-                                    "resources": {}
+                                    "resources": {"requests": {"cpu": "1m", "memory": "1Mi"}}
                                 }
                             ]
                         }
                     }
                 ],
                 "replicas": 1,
-                "engineResources": {},
+                "engineResources": {"resources": {"requests": {"cpu": "1m", "memory": "1Mi"}}},
                 "svcOrchSpec": {},
                 "traffic": 100
             }
