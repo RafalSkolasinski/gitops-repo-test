@@ -1,0 +1,56 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1alpha2",
+    "metadata": {
+        "name": "logger-dict",
+        "namespace": "gitops-namespace",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "logger-dict",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "logger-dict-container",
+                    "type": "MODEL",
+                    "endpoint": {
+                        "type": "REST"
+                    },
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2020-11-20T14:50:21Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "logger-dict-container",
+                                    "image": "rafalskolasinski/mock-jsondata:1.3.0",
+                                    "resources": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "seldon",
+        "transport": "rest"
+    },
+    "status": {}
+}
