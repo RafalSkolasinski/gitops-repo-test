@@ -41,7 +41,7 @@
                     }
                 ],
                 "replicas": 1,
-                "engineResources": {"resources": {"requests": {"cpu": "1m", "memory": "1Mi"}}},
+                "engineResources": {},
                 "svcOrchSpec": {},
                 "traffic": 100
             }
